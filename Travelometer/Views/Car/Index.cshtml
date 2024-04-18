@@ -1,0 +1,52 @@
+﻿@model List<Travelometer.Models.Domain.CarRental>
+@{
+}
+
+<h1>Hotels</h1>
+
+<input type="text" id="searchInput" placeholder="Search by Car Model">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Car Model</th>
+            <th>Rental Company</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Click here</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.Id</td>
+                <td>@car.CarModel</td>
+                <td>@car.RentalCompany</td>
+                <td>@car.Price</td>
+                <td>@car.Availability</td>
+                <td>
+                    <!-- Button redirects to EnterEmail action -->
+                    <a class="btn btn-primary" href="/Flight/EnterEmail?flightId=@car.Id">Book Now</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var filter = this.value.toLowerCase();
+        var rows = document.querySelectorAll('tbody tr');
+
+        rows.forEach(function(row) {
+            var model = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+            if (model.includes(filter)) {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+</script>

@@ -1,0 +1,74 @@
+﻿@model Travelometer.Models.AddFlightViewModel
+
+@{
+    ViewData["Title"] = "Add Flight";
+}
+
+<style>
+    .container {
+        padding-top: 50px;
+    }
+
+    .card {
+        margin-top: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+</style>
+
+<h1>Add Flight</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="Add">
+                        <div class="form-group">
+                            <label for="airline">Airline:</label>
+                            <input type="text" class="form-control" asp-for="Airline" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="departureLocation">Departure Location:</label>
+                            <input type="text" class="form-control" asp-for="DepartureLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="arrivalLocation">Arrival Location:</label>
+                            <input type="text" class="form-control" asp-for="ArrivalLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="departureTime">Departure Time:</label>
+                            <input type="datetime-local" class="form-control" asp-for="DepartureTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="arrivalTime">Arrival Time:</label>
+                            <input type="datetime-local" class="form-control" asp-for="ArrivalTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" step="0.01" class="form-control" asp-for="Price" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

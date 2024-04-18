@@ -1,0 +1,68 @@
+﻿@model List<Travelometer.Models.Domain.Flight>
+
+@{
+    ViewData["Title"] = "Flight Index";
+}
+
+<h1>Flight Index</h1>
+
+<input type="text" id="searchInput" placeholder="Departure or Arrival">
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Airline</th>
+                <th>Departure Location</th>
+                <th>Arrival Location</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Price</th>
+                <th></th> <!-- Add a column for the "Book Now" button -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var flight in Model)
+            {
+                <tr>
+                    <td>@flight.Id</td>
+                    <td>@flight.Airline</td>
+                    <td>@flight.DepartureLocation</td>
+                    <td>@flight.ArrivalLocation</td>
+                    <td>@flight.DepartureTime</td>
+                    <td>@flight.ArrivalTime</td>
+                    <td>@flight.Price</td>
+                    <td>
+                        <!-- Button redirects to EnterEmail action -->
+                        <a class="btn btn-primary" href="/Flight/EnterEmail?flightId=@flight.Id">Book Now</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No flights found.</p>
+}
+
+@section Scripts {
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function () {
+            var filter = this.value.toLowerCase();
+            var rows = document.querySelectorAll('tbody tr');
+
+            rows.forEach(function (row) {
+                var departureLocation = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                var arrivalLocation = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+                if (departureLocation.includes(filter) || arrivalLocation.includes(filter)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+}

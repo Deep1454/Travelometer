@@ -1,0 +1,40 @@
+﻿@model Guid
+
+@{
+    ViewData["Title"] = "Enter Email";
+}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+</style>
+
+<h1>Enter Email</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group" style="display: none;">
+                <label for="flightId">Flight ID:</label>
+                <input type="hidden" class="form-control" id="flightId" name="FlightId" value="@Model" readonly>
+            </div>
+            <form method="post" action="/Flight/Book">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="Email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

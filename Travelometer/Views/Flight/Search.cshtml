@@ -1,0 +1,44 @@
+﻿@model Travelometer.Models.SearchFlightViewModel
+
+@{
+    ViewData["Title"] = "Search Flights";
+}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        padding-top: 50px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+</style>
+
+<h1>Search Flights</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" asp-action="Search">
+                <div class="form-group">
+                    <label for="departureLocation">Departure Location:</label>
+                    <input type="text" class="form-control" asp-for="DepartureLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="arrivalLocation">Arrival Location:</label>
+                    <input type="text" class="form-control" asp-for="ArrivalLocation" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Add Flight</h1>
+
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="airline">Airline:</label>
+            <input type="text" class="form-control" id="airline" name="Airline" required>
+        </div>
+        <div class="form-group">
+            <label for="departureLocation">Departure Location:</label>
+            <input type="text" class="form-control" id="departureLocation" name="DepartureLocation" required>
+        </div>
+        <div class="form-group">
+            <label for="arrivalLocation">Arrival Location:</label>
+            <input type="text" class="form-control" id="arrivalLocation" name="ArrivalLocation" required>
+        </div>
+        <div class="form-group">
+            <label for="departureTime">Departure Time:</label>
+            <input type="datetime-local" class="form-control" id="departureTime" name="DepartureTime" required>
+        </div>
+        <div class="form-group">
+            <label for="arrivalTime">Arrival Time:</label>
+            <input type="datetime-local" class="form-control" id="arrivalTime" name="ArrivalTime" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" class="form-control" id="price" name="Price" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+﻿@model Travelometer.Models.AddCarRentalViewModel
+
+@{
+    ViewData["Title"] = "Add Car Rental";
+}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        padding-top: 50px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+</style>
+
+<h1>Add Car Rental</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" asp-action="Add">
+                <div class="form-group">
+                    <label for="carModel">Car Model:</label>
+                    <input type="text" class="form-control" asp-for="CarModel" required>
+                </div>
+                <div class="form-group">
+                    <label for="rentalCompany">Rental Company:</label>
+                    <input type="text" class="form-control" asp-for="RentalCompany" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" step="0.01" class="form-control" asp-for="Price" required>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="availability" asp-for="Availability">
+                    <label class="form-check-label" for="availability">Availability</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
